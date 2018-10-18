@@ -13,8 +13,8 @@ Scan () {
     echo ${XQCUT}
     for qcut in $(seq 20 5 120) #scanning from 20 to 120 GeV in step of 5
     do
-	 echo "./makejob.sh ${model} ${chi} ${phi} ${hs} ${qcut} ${queue}"  
-         #./makejob.sh ${model} ${chi} ${phi} ${hs} ${qcut} ${queue}
+	echo "./makejob.sh ${model} ${chi} ${phi} ${hs} ${qcut} ${queue}"  
+        ./makejob.sh ${model} ${chi} ${phi} ${hs} ${qcut} ${queue}
     done
 }
 
