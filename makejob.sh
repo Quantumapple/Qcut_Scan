@@ -24,4 +24,4 @@ mv temp CMSSW_$1_mphi_$3_mchi_$2_mhs_$4_qcut_$5.job
 chmod a+x CMSSW_$1_mphi_$3_mchi_$2_mhs_$4_qcut_$5.job
 
 ## Send job
-#bsub -R "rusage[mem=4000]" -q $6 -o Log_$1_mphi_$3_mchi_$2_mhs_$4_qcut_$5 CMSSW_$1_mphi_$3_mchi_$2_mhs_$4_qcut_$5.job
+bsub -R "rusage[mem=4000]" -q $6 -o Log_$1_mphi_$3_mchi_$2_mhs_$4_qcut_$5 CMSSW_$1_mphi_$3_mchi_$2_mhs_$4_qcut_$5.job
