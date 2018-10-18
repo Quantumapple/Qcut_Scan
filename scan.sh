@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LHEDIR=/eos/user/s/shoh/LHE/MonojetMatch1JetsDM
+LHEDIR=/eos/user/s/shoh/LHE/MonojetMatch1JetsDM ##YOUR LHE LOCATION
 queue=1nd
 ONESAMPLE=1
 ZP=3000
