@@ -115,6 +115,7 @@ EOF
 #extracting file
 
 echo "Copying files.."
+mkdir -p ${ROOTFILE}/Log
 cp run.log ${ROOTFILE}/Log/Log_INPUT1_LO_MZprime_INPUT3_Mhs_INPUT4_Mchi_INPUT2_pythia_Qcut_INPUT5.log
 cp INPUT1_LO_MZprime-INPUT3_Mhs-INPUT4_Mchi-INPUT2_gSM-0p25_gDM-1p0_th_0p01_13TeV-madgraph_pythia_Qcut_INPUT5.root ${ROOTFILE}
 cp DJR_PLOT_INPUT1_LO_MZprime-INPUT3_Mhs-INPUT4_Mchi-INPUT2_gSM-0p25_gDM-1p0_th_0p01_13TeV-madgraph_pythia_Qcut_INPUT5.root ${ROOTFILE}
