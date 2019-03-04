@@ -124,7 +124,8 @@ void makeplot(const char *name, TTree *tree, TCut weight, const char *drawstring
 
 }
 
-void plotdjr(const TString & infile, const TString & outfile, const char *qcut) {
+//void plotdjr(const TString & infile, const TString & outfile, const char *qcut) {
+void plotdjr(const TString & outfile, const char *qcut) {
 
   gSystem->Load("libFWCoreFWLite.so");  
   //AutoLibraryLoader::enable();
@@ -135,11 +136,32 @@ void plotdjr(const TString & infile, const TString & outfile, const char *qcut) 
 
   TFile *f = new TFile(outfile,"RECREATE");
   
+  TString infile;
+
+  ifstream in;
+  in.open("text.txt", ios::in);
+
+  if(in.fail()){
+      cout <<"unable to open"<<endl;
+      exit(1);
+  }
+
+  while( in >> infile)
+  {
+      cout << infile << endl;
+      if( !in.good() ) break;
+  }
+
   TChain *tree = new TChain("Events");
   tree->Add(infile);
+ 
+  //original
+  //tree->SetAlias("GenEvent","GenEventInfoProduct_generator__GEN.obj");
+  //tree->SetAlias("LHEEvent","LHEEventProduct_externalLHEProducer__LHE.obj");
   
-  tree->SetAlias("GenEvent","GenEventInfoProduct_generator__GEN.obj");
-  tree->SetAlias("LHEEvent","LHEEventProduct_externalLHEProducer__LHE.obj");
+  //my version
+  tree->SetAlias("GenEvent","GenEventInfoProduct_generator__SIM.obj"); 
+  tree->SetAlias("LHEEvent","LHEEventProduct_source__LHEFile.obj");
  
   TCut weight = "GenEvent.weight()";
   int nbins = 50.;
